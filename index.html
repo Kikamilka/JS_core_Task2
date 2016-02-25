@@ -7,5 +7,20 @@
     <script src="js/transferService.js"></script>
 </head>
 <body>
+<script>
+    // пример работы модуля
+    var myPerson = new Person("Anton", "10/10/1970");
+    transferService.register(myPerson, "#001", 2500);
+    transferService.register(myPerson, "#002", 100);
+    transferService.getPersonAccounts(myPerson);
+    myPerson.accounts[0].logBalance();
+    myPerson.accounts[1].logBalance();
+    var secondPerson = new Person("Masha", "12/07/1989");
+    transferService.register(secondPerson, "#045", 200);
+    secondPerson.accounts[0].logBalance();
+    transferService.transfer(myPerson.accounts[0], secondPerson.accounts[0], 200);
+    secondPerson.accounts[0].logBalance();
+    myPerson.accounts[0].logBalance();
+</script>
 </body>
 </html>
